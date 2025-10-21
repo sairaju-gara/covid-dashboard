@@ -331,7 +331,7 @@ class Home extends Component {
     const {searchInput, statesList, isLoading} = this.state
 
     const searchResults = statesList.filter(eachState =>
-      eachState.state_name.toLowerCase().includes(searchInput),
+      eachState.stateName.toLowerCase().includes(searchInput),
     )
 
     return (
@@ -354,7 +354,7 @@ class Home extends Component {
             {searchResults.map(eachSuggestion => (
               <SearchSuggestions
                 suggestionDetails={eachSuggestion}
-                key={eachSuggestion.state_code}
+                key={eachSuggestion.stateCode}
               />
             ))}
           </ul>
