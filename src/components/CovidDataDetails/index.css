@@ -1,0 +1,30 @@
+.table-data {
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+}
+.states {
+  color: #f1f5f9;
+  width: 20%;
+}
+.confirmed {
+  color: #ff073a;
+}
+.active {
+  color: #007bff;
+}
+.recovered {
+  color: #28a745;
+}
+.deceased {
+  color: #6c757d;
+}
+.population {
+  color: #94a3b8;
+}
+.table-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}

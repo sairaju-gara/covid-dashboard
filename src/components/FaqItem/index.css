@@ -1,0 +1,14 @@
+.faq-item {
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 32px;
+  margin-bottom: 20px;
+  width: 97%;
+}
+.faq-question {
+  color: #94a3b8;
+}
+.faq-response {
+  color: #007bff;
+}

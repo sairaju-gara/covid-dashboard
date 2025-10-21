@@ -1,0 +1,126 @@
+.app-home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding-top: 50px;
+  background-color: #161625;
+  padding-bottom: 50px;
+}
+.search-container {
+  width: 70%;
+  height: 70px;
+  box-shadow: 0px 8px 16px 0px #171f4614;
+  background-color: #2f2f43;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+.search-bar {
+  outline: none;
+  border: none;
+  flex-grow: 1;
+  background-color: transparent;
+  color: #6c757d;
+}
+.search-bar::placeholder {
+  width: 105;
+  height: 24;
+  opacity: 1;
+  color: #94a3b8;
+}
+.search-icon {
+  width: 24;
+  height: 24;
+  color: #94a3b8;
+  margin-right: 10px;
+}
+.search-suggestions-container {
+  list-style-type: none;
+  width: 70%;
+}
+.covid-table-container {
+  border: #475569 1px solid;
+  border-radius: 10px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  padding: 20px;
+
+  width: 90%;
+  margin-top: 50px;
+}
+.covid-table-header-container {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 30px;
+}
+.table-header {
+  color: #f8fafc;
+  font-family: Roboto;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+}
+.seperator {
+  border: 1px solid #475569;
+  width: 100%;
+}
+.sorting-btn {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  margin-right: 5px;
+  margin-left: 5px;
+  align-self: flex-end;
+}
+.sorting-icon {
+  height: 20px;
+  width: 20px;
+}
+.covid-table-rows-container {
+  list-style-type: none;
+}
+.covid-summary-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+  width: 90%;
+}
+.covid-summary-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.summary-label {
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+}
+.summary-image {
+  width: 38px;
+  height: 38px;
+}
+.summary-count {
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 24px;
+  text-align: center;
+}
+.confirmed-container {
+  color: #ff073a;
+}
+.active-container {
+  color: #007bff;
+}
+.recovered-container {
+  color: #28a745;
+}
+.deceased-container {
+  color: #6c757d;
+}

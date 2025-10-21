@@ -1,0 +1,114 @@
+.specific-state-container {
+  background-color: #161625;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.state-and-testedcases-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+}
+.state-container {
+  background-color: #0284c729;
+  width: 312;
+  height: 64;
+  border-radius: 32px;
+  padding-top: 10px;
+  padding-right: 21px;
+  padding-bottom: 10px;
+  padding-left: 21px;
+}
+.state-name {
+  color: #0ea5e9;
+  font-family: HK Grotesk;
+  font-weight: 600 !important;
+  font-size: 32px !important;
+  line-height: 48px;
+}
+.last-updated-date {
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  color: #cbd5e1;
+  align-self: flex-start;
+}
+.state-summary-container {
+  text-align: right;
+}
+.state-tested {
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #94a3b8;
+}
+.state-tests-count {
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 24px;
+  color: #94a3b8;
+}
+.top-districts {
+  color: #ff073a;
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 48px;
+  width: 90%;
+}
+.district-summary-container {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  flex-wrap: wrap;
+}
+.line-charts-container {
+  width: 100%;
+}
+.daily-spread-trends {
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 48px;
+
+  color: #cbd5e1;
+}
+.confirmed-data {
+  background-color: #331427;
+  margin-bottom: 30px;
+}
+.recovered-data {
+  background-color: #182829;
+  margin-bottom: 30px;
+}
+.active-data {
+  background-color: #132240;
+  margin-bottom: 30px;
+}
+.deceased-data {
+  background-color: #1c1c2b;
+  margin-bottom: 30px;
+}
+.tested-data {
+  background-color: #331427;
+  margin-bottom: 30px;
+}
+.covid-summary-container {
+  margin-top: 50px;
+}
+.summary-details-container {
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+  width: 90%;
+}
+.bar-chart-container {
+  width: 90%;
+}

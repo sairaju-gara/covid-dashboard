@@ -1,0 +1,17 @@
+.district-summary-item {
+  display: flex;
+  align-items: center;
+  color: #94a3b8;
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 100%;
+  width: 25%;
+}
+.district-name {
+  font-size: 16px;
+}
+.cases-count {
+  font-size: 24px;
+  margin-right: 20px;
+}

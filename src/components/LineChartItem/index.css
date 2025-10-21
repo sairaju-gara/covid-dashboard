@@ -1,0 +1,20 @@
+.confirmed-data {
+  background-color: #331427;
+  margin-bottom: 30px;
+}
+.recovered-data {
+  background-color: #182829;
+  margin-bottom: 30px;
+}
+.active-data {
+  background-color: #132240;
+  margin-bottom: 30px;
+}
+.deceased-data {
+  background-color: #1c1c2b;
+  margin-bottom: 30px;
+}
+.tested-data {
+  background-color: #331427;
+  margin-bottom: 30px;
+}
