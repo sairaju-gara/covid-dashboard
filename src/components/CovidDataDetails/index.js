@@ -6,8 +6,8 @@ const CovidDataDetails = props => {
   const {confirmed, deceased, recovered} = total
   const activeCases = confirmed - (recovered + deceased)
 
-  const state = statesList.find(eahState => stateCode === eahState.stateCode)
-  const stateName = state ? state.stateName : stateCode
+  const state = statesList.find(eahState => stateCode === eahState.state_code)
+  const stateName = state ? state.state_name : stateCode
 
   if (!state) {
     return null

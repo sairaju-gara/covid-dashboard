@@ -8,156 +8,11 @@ import CovidDataDetails from '../CovidDataDetails'
 import Footer from '../Footer'
 import './index.css'
 
-const initialStatesList = [
-  {
-    stateCode: 'AN',
-    stateName: 'Andaman and Nicobar Islands',
-  },
-  {
-    stateCode: 'AP',
-    stateName: 'Andhra Pradesh',
-  },
-  {
-    stateCode: 'AR',
-    stateName: 'Arunachal Pradesh',
-  },
-  {
-    stateCode: 'AS',
-    stateName: 'Assam',
-  },
-  {
-    stateCode: 'BR',
-    stateName: 'Bihar',
-  },
-  {
-    stateCode: 'CH',
-    stateName: 'Chandigarh',
-  },
-  {
-    stateCode: 'CT',
-    stateName: 'Chhattisgarh',
-  },
-  {
-    stateCode: 'DN',
-    stateName: 'Dadra and Nagar Haveli and Daman and Diu',
-  },
-  {
-    stateCode: 'DL',
-    stateName: 'Delhi',
-  },
-  {
-    stateCode: 'GA',
-    stateName: 'Goa',
-  },
-  {
-    stateCode: 'GJ',
-    stateName: 'Gujarat',
-  },
-  {
-    stateCode: 'HR',
-    stateName: 'Haryana',
-  },
-  {
-    stateCode: 'HP',
-    stateName: 'Himachal Pradesh',
-  },
-  {
-    stateCode: 'JK',
-    stateName: 'Jammu and Kashmir',
-  },
-  {
-    stateCode: 'JH',
-    stateName: 'Jharkhand',
-  },
-  {
-    stateCode: 'KA',
-    stateName: 'Karnataka',
-  },
-  {
-    stateCode: 'KL',
-    stateName: 'Kerala',
-  },
-  {
-    stateCode: 'LA',
-    stateName: 'Ladakh',
-  },
-  {
-    stateCode: 'LD',
-    stateName: 'Lakshadweep',
-  },
-  {
-    stateCode: 'MH',
-    stateName: 'Maharashtra',
-  },
-  {
-    stateCode: 'MP',
-    stateName: 'Madhya Pradesh',
-  },
-  {
-    stateCode: 'MN',
-    stateName: 'Manipur',
-  },
-  {
-    stateCode: 'ML',
-    stateName: 'Meghalaya',
-  },
-  {
-    stateCode: 'MZ',
-    stateName: 'Mizoram',
-  },
-  {
-    stateCode: 'NL',
-    stateName: 'Nagaland',
-  },
-  {
-    stateCode: 'OR',
-    stateName: 'Odisha',
-  },
-  {
-    stateCode: 'PY',
-    stateName: 'Puducherry',
-  },
-  {
-    stateCode: 'PB',
-    stateName: 'Punjab',
-  },
-  {
-    stateCode: 'RJ',
-    stateName: 'Rajasthan',
-  },
-  {
-    stateCode: 'SK',
-    stateName: 'Sikkim',
-  },
-  {
-    stateCode: 'TN',
-    stateName: 'Tamil Nadu',
-  },
-  {
-    stateCode: 'TG',
-    stateName: 'Telangana',
-  },
-  {
-    stateCode: 'TR',
-    stateName: 'Tripura',
-  },
-  {
-    stateCode: 'UP',
-    stateName: 'Uttar Pradesh',
-  },
-  {
-    stateCode: 'UT',
-    stateName: 'Uttarakhand',
-  },
-  {
-    stateCode: 'WB',
-    stateName: 'West Bengal',
-  },
-]
+import {statesList} from '../staticLists'
 
+console.log(statesList.length)
 class Home extends Component {
   state = {
-    statesList: initialStatesList,
     covidData: [],
     totalStatus: {},
     searchInput: '',
@@ -178,21 +33,30 @@ class Home extends Component {
     const apiUrl = 'https://apis.ccbp.in/covid19-state-wise-data'
     const response = await fetch(apiUrl)
     const covidData = await response.json()
-
+    console.log(covidData)
     const updatedCovidData = Object.entries(covidData).map(entry =>
       this.formatedData(entry),
     )
-    const totalData = covidData?.TT?.total || {}
-    const {confirmed, deceased, recovered} = totalData
 
-    const active = confirmed - (recovered + deceased)
+    let totalConfirmed = 0
+    let totalRecovered = 0
+    let totalDeceased = 0
+
+    Object.values(covidData).forEach(stateData => {
+      totalConfirmed += stateData.total?.confirmed || 0
+      totalRecovered += stateData.total?.recovered || 0
+      totalDeceased += stateData.total?.deceased || 0
+    })
+
+    const totalActive = totalConfirmed - totalRecovered - totalDeceased
+
     this.setState({
       covidData: updatedCovidData,
       totalStatus: {
-        confirmed,
-        active,
-        recovered,
-        deceased,
+        confirmed: totalConfirmed,
+        active: totalActive,
+        recovered: totalRecovered,
+        deceased: totalDeceased,
       },
       isLoading: false,
     })
@@ -258,7 +122,7 @@ class Home extends Component {
   onGetAscData = () => {
     const {covidData} = this.state
 
-    const ascCovidData = covidData.sort((a, b) =>
+    const ascCovidData = [...covidData].sort((a, b) =>
       a.stateCode.localeCompare(b.stateCode),
     )
     this.setState({covidData: ascCovidData})
@@ -267,19 +131,19 @@ class Home extends Component {
   onGetDescData = () => {
     const {covidData} = this.state
 
-    const descCovidData = covidData.sort((a, b) =>
+    const descCovidData = [...covidData].sort((a, b) =>
       b.stateCode.localeCompare(a.stateCode),
     )
     this.setState({covidData: descCovidData})
   }
 
   renderCovidTableView = () => {
-    const {covidData, statesList} = this.state
+    const {covidData} = this.state
 
     return (
       <div className="covid-table-container" testid="stateWiseCovidDataTable">
         <div className="covid-table-header-container">
-          <p className="table-header">
+          <p className="table-header states-header">
             States/UT
             <button
               type="button"
@@ -328,10 +192,10 @@ class Home extends Component {
     this.setState({searchInput: event.target.value})
 
   render() {
-    const {searchInput, statesList, isLoading} = this.state
+    const {searchInput, isLoading} = this.state
 
     const searchResults = statesList.filter(eachState =>
-      eachState.stateName.toLowerCase().includes(searchInput),
+      eachState.state_name.toLowerCase().includes(searchInput.toLowerCase()),
     )
 
     return (
@@ -346,7 +210,7 @@ class Home extends Component {
             onChange={this.onChangeSearchInput}
           />
         </div>
-        {searchInput.length > 0 && (
+        {searchInput.length > 0 ? (
           <ul
             testid="searchResultsUnorderedList"
             className="search-suggestions-container"
@@ -354,16 +218,20 @@ class Home extends Component {
             {searchResults.map(eachSuggestion => (
               <SearchSuggestions
                 suggestionDetails={eachSuggestion}
-                key={eachSuggestion.stateCode}
+                key={eachSuggestion.state_code}
               />
             ))}
           </ul>
-        )}
-        {isLoading ? (
-          this.renderLoaderView()
         ) : (
           <>
-            {this.renderSummaryDetailsView()} {this.renderCovidTableView()}
+            {isLoading ? (
+              this.renderLoaderView()
+            ) : (
+              <>
+                {this.renderSummaryDetailsView()}
+                {this.renderCovidTableView()}
+              </>
+            )}
           </>
         )}
         <Footer />

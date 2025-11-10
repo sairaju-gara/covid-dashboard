@@ -15,3 +15,22 @@
   font-size: 24px;
   margin-right: 20px;
 }
+@media (max-width: 768px) {
+  .district-name {
+    font-size: 13px;
+  }
+  .cases-count {
+    font-size: 16px;
+  }
+}
+@media (max-width: 767px) {
+  .district-name {
+    font-size: 12px;
+  }
+  .cases-count {
+    font-size: 16px;
+  }
+  .district-summary-item {
+    width: 50%;
+  }
+}

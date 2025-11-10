@@ -8,7 +8,17 @@
 }
 .faq-question {
   color: #94a3b8;
+  margin: 0;
 }
 .faq-response {
   color: #007bff;
+  margin: 0;
+}
+@media (max-width: 767px) {
+  .faq-question {
+    font-size: 14px;
+  }
+  .faq-response {
+    font-size: 14px;
+  }
 }

@@ -1,0 +1,63 @@
+.state-time-line-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loader-container {
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.line-charts-container {
+  width: 90%;
+}
+.line-charts-list-container {
+  margin: 0;
+  padding: 0;
+}
+.district-drop-down-list {
+  width: 264px;
+  height: 50px;
+  background-color: #2f2f43;
+  padding: 10px;
+  color: #94a3b8;
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  margin-bottom: 20px;
+}
+@media (max-width: 768px) {
+  .district-drop-down-list {
+    width: 108px;
+    height: 30px;
+    font-size: 10px;
+  }
+}
+.daily-spread-trends {
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 48px;
+  color: #cbd5e1;
+}
+@media (max-width: 767px) {
+  .daily-spread-trends {
+    font-size: 24px;
+  }
+}
+.bar-graph-wrapper {
+  margin: 20px 0px;
+}
+@media (max-width: 768px) {
+  .bar-graph-wrapper {
+    width: 90%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}

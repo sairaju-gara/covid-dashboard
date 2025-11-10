@@ -6,8 +6,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 19px;
+  padding-right: 19px;
 }
 
+.loader-container {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .about-header {
   font-family: Roboto;
   font-weight: 500;
@@ -24,6 +33,35 @@
   color: #e2e8f0;
   width: 94%;
 }
+@media (max-width: 767px) {
+  .header-container {
+    display: block;
+    width: 100%;
+  }
+}
+@media (min-width: 768px) {
+  .header-container {
+    display: none;
+  }
+}
+
 .faq-data-container {
   list-style-type: none;
+  margin: 0;
+  padding: 0;
+  padding-left: 19px;
+  padding-right: 19px;
+}
+
+@media (max-width: 767px) {
+  .app-about-container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .about-header {
+    font-size: 24px;
+  }
+  .description-header {
+    font-size: 16px;
+  }
 }

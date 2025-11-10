@@ -4,13 +4,13 @@ import './index.css'
 
 const SearchSuggestions = props => {
   const {suggestionDetails} = props
-  const {stateCode, stateName} = suggestionDetails
+  const {state_code, state_name} = suggestionDetails
   return (
-    <Link to={`/state/${stateCode}`} className="linked-item">
+    <Link to={`/state/${state_code}`} className="linked-item">
       <li className="suggestion-item">
-        <p className="state-name">{stateName}</p>
+        <p className="state-name">{state_name}</p>
         <button className="navigate-btn" type="button">
-          <p className="state-code">{stateCode}</p>
+          <p className="state-code">{state_code}</p>
           <BiChevronRightSquare className="navigate-icon" />
         </button>
       </li>

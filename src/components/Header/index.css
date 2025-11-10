@@ -1,3 +1,7 @@
+body {
+  margin: 0;
+  padding: 0;
+}
 .app-navbar {
   display: flex;
   justify-content: space-between;
@@ -8,24 +12,26 @@
   padding-bottom: 20px;
   background-color: #1e1e30;
   height: 80px;
+  width: 100vw;
 }
 .app-logo {
   font-family: Bree Serif;
   font-weight: 400;
   font-size: 20px;
   line-height: 24px;
-  letter-spacing: 0%;
   text-align: center;
   color: #f8fafc;
 }
 .india-span-ele {
   color: #007bff;
 }
-.nav-item-container {
+.main-nav-item-container {
   display: flex;
   list-style-type: none;
+  align-items: center;
 }
-.nav-item {
+
+.header-nav-item {
   margin-right: 10px;
   font-family: Roboto;
   font-weight: 500;
@@ -38,4 +44,37 @@
 }
 .active-link {
   color: #f8fafc;
+}
+.menu-icon {
+  font-size: 16px;
+  color: #f8fafc;
+}
+.desktop-nav {
+  display: flex;
+}
+@media (max-width: 767px) {
+  .app-navbar {
+    height: 56px;
+    padding-left: 19px;
+    padding-right: 19px;
+  }
+  .app-logo {
+    font-size: 16px;
+  }
+}
+
+.hamburger-icon {
+  display: none;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 767px) {
+  .hamburger-icon {
+    display: block;
+  }
+  .desktop-nav {
+    display: none;
+  }
 }

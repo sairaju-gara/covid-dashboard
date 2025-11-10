@@ -6,22 +6,57 @@
   min-height: 100vh;
   padding-top: 50px;
   padding-bottom: 50px;
+  width: 100vw;
 }
+@media (max-width: 767px) {
+  .specific-state-container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+}
+@media (max-width: 767px) {
+  .header-container {
+    display: block;
+    width: 100%;
+  }
+}
+@media (min-width: 768px) {
+  .header-container {
+    display: none;
+  }
+}
+
 .state-and-testedcases-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 90%;
 }
+.loader-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .state-container {
   background-color: #0284c729;
-  width: 312;
-  height: 64;
+  min-width: 200px;
+  height: 64px;
   border-radius: 32px;
   padding-top: 10px;
   padding-right: 21px;
   padding-bottom: 10px;
   padding-left: 21px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 767px) {
+  .state-container {
+    height: 32px;
+    min-width: 100px;
+  }
 }
 .state-name {
   color: #0ea5e9;
@@ -36,10 +71,7 @@
   font-size: 18px;
   line-height: 24px;
   color: #cbd5e1;
-  align-self: flex-start;
-}
-.state-summary-container {
-  text-align: right;
+  width: 90%;
 }
 .state-tested {
   font-family: Roboto;
@@ -47,6 +79,7 @@
   font-size: 16px;
   line-height: 24px;
   color: #94a3b8;
+  margin: 0;
 }
 .state-tests-count {
   font-family: Roboto;
@@ -54,7 +87,22 @@
   font-size: 24px;
   line-height: 24px;
   color: #94a3b8;
+  margin: 0;
 }
+@media (max-width: 767px) {
+  .state-tests-count,
+  .state-name {
+    font-size: 16px !important;
+  }
+  .state-tested,
+  .last-updated-date {
+    font-size: 12px;
+  }
+}
+.state-summary-container {
+  text-align: right;
+}
+
 .top-districts {
   color: #ff073a;
   font-family: Roboto;
@@ -63,43 +111,20 @@
   line-height: 48px;
   width: 90%;
 }
+@media (max-width: 767px) {
+  .top-districts {
+    font-size: 24px;
+  }
+}
 .district-summary-container {
   display: flex;
   align-items: center;
   width: 90%;
   flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
 }
-.line-charts-container {
-  width: 100%;
-}
-.daily-spread-trends {
-  font-family: Roboto;
-  font-weight: 500;
-  font-size: 32px;
-  line-height: 48px;
 
-  color: #cbd5e1;
-}
-.confirmed-data {
-  background-color: #331427;
-  margin-bottom: 30px;
-}
-.recovered-data {
-  background-color: #182829;
-  margin-bottom: 30px;
-}
-.active-data {
-  background-color: #132240;
-  margin-bottom: 30px;
-}
-.deceased-data {
-  background-color: #1c1c2b;
-  margin-bottom: 30px;
-}
-.tested-data {
-  background-color: #331427;
-  margin-bottom: 30px;
-}
 .covid-summary-container {
   margin-top: 50px;
 }
@@ -108,7 +133,11 @@
   justify-content: space-between;
   list-style-type: none;
   width: 90%;
+  margin: 0;
+  padding: 0;
 }
-.bar-chart-container {
-  width: 90%;
+@media (max-width: 767px) {
+  .summary-details-container {
+    flex-wrap: wrap;
+  }
 }

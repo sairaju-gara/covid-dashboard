@@ -7,6 +7,7 @@
   width: 254px;
   border-radius: 10px;
 }
+
 .summary-label {
   font-family: Roboto;
   font-weight: 500;
@@ -23,6 +24,22 @@
   font-size: 24px;
   line-height: 24px;
   text-align: center;
+}
+@media (max-width: 767px) {
+  .covid-summary-item {
+    height: 148px;
+    width: 148px;
+  }
+  .summary-image {
+    height: 24px;
+    width: 24px;
+  }
+  .summary-count {
+    font-size: 12px;
+  }
+  .summary-label {
+    font-size: 16px;
+  }
 }
 .confirmed-container {
   color: #ff073a;

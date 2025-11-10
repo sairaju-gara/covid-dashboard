@@ -3,6 +3,7 @@ import {Switch, Route} from 'react-router-dom'
 import './App.css'
 import Header from './components/Header'
 import StateSpecificPage from './components/StateSpecificPage'
+import Vaccination from './components/Vaccination'
 import Home from './components/Home'
 import About from './components/About'
 import NotFound from './components/NotFound'
@@ -14,6 +15,7 @@ const App = () => (
       <Route exact path="/" component={Home} />
       <Route exact path="/about" component={About} />
       <Route exact path="/state/:stateCode" component={StateSpecificPage} />
+      <Route exact path="/vaccination" component={Vaccination} />
       <Route component={NotFound} />
     </Switch>
   </>
