@@ -16,7 +16,6 @@ class StateSpecificPage extends Component {
     activeSummaryId: covidSummaryList[0].id,
     isStateDataLoading: true,
     activeStateName: null,
-    lastTenDaysData: {},
   }
 
   componentDidMount() {
@@ -51,8 +50,8 @@ class StateSpecificPage extends Component {
     const testedCases = updatedStateData?.total?.tested || 0
 
     const activeStateName = statesList.find(
-      eachState => eachState.state_code === stateCode,
-    ).state_name
+      eachState => eachState.stateCode === stateCode,
+    ).stateName
 
     const totalData = state[1]?.total || {}
     const {confirmed, recovered, deceased} = totalData
@@ -78,14 +77,17 @@ class StateSpecificPage extends Component {
     const {districtsData, activeSummaryId} = this.state
 
     const sortedDistricts = [...districtsData].sort((a, b) => {
-      const key =
-        activeSummaryId === 1
-          ? 'confirmed'
-          : activeSummaryId === 2
-          ? 'active'
-          : activeSummaryId === 3
-          ? 'recovered'
-          : 'deceased'
+      let key
+
+      if (activeSummaryId === 1) {
+        key = 'confirmed'
+      } else if (activeSummaryId === 2) {
+        key = 'active'
+      } else if (activeSummaryId === 3) {
+        key = 'recovered'
+      } else {
+        key = 'deceased'
+      }
 
       const totalA = a[1]?.total || {}
       const totalB = b[1]?.total || {}
@@ -114,7 +116,7 @@ class StateSpecificPage extends Component {
   onChnageSummaryId = id => this.setState({activeSummaryId: id})
 
   renderStateDetailsLoader = () => (
-    <div testid="stateDetailsLoader" className="loader-container">
+    <div data-testid="stateDetailsLoader" className="loader-container">
       <Loader type="Oval" color="#007BFF" height={50} />
     </div>
   )
@@ -214,7 +216,7 @@ class StateSpecificPage extends Component {
             <h1 className="top-districts">Top Districts</h1>
             <ul
               className="district-summary-container"
-              testid="topDistrictsUnorderedList"
+              data-testid="topDistrictsUnorderedList"
             >
               {sortedDistricts.map(eachDistrict => (
                 <DistrictAndCases

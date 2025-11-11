@@ -42,7 +42,7 @@ const SummaryCardItem = props => {
   return (
     <li
       className={`covid-summary-item ${summaryItemClassname} ${summaryCardBgClassname}`}
-      testid={`${testid}`}
+      data-testid={`${testid}`}
       onClick={() => onChnageSummaryId(id)}
     >
       <p className="summary-label">{labelName}</p>

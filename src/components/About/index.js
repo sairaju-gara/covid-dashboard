@@ -26,7 +26,7 @@ class About extends Component {
   }
 
   renderLoaderView = () => (
-    <div testid="aboutRouteLoader" className="loader-container">
+    <div data-testid="aboutRouteLoader" className="loader-container">
       <Loader type="Oval" color="#007BFF" height={50} />
     </div>
   )
@@ -44,7 +44,7 @@ class About extends Component {
             <h1 className="description-header">
               COVID-19 vaccines be ready for distribution
             </h1>
-            <ul className="faq-data-container" testid="faqsUnorderedList">
+            <ul className="faq-data-container" data-testid="faqsUnorderedList">
               {faqData.map(eachFaqItem => (
                 <FaqItem key={eachFaqItem.qno} faqDetails={eachFaqItem} />
               ))}

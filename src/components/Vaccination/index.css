@@ -17,6 +17,7 @@
   font-size: 32px;
   line-height: 48px;
 }
+
 .loader-container {
   min-height: 90vh;
   display: flex;
@@ -32,6 +33,7 @@
     font-size: 20px;
   }
 }
+
 .drop-downs-container {
   display: flex;
   align-items: center;

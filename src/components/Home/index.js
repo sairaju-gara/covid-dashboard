@@ -33,7 +33,7 @@ class Home extends Component {
     const apiUrl = 'https://apis.ccbp.in/covid19-state-wise-data'
     const response = await fetch(apiUrl)
     const covidData = await response.json()
-    console.log(covidData)
+
     const updatedCovidData = Object.entries(covidData).map(entry =>
       this.formatedData(entry),
     )
@@ -69,7 +69,7 @@ class Home extends Component {
       <div className="covid-summary-container">
         <div
           className="covid-summary-item confirmed-container"
-          testid="countryWideConfirmedCases"
+          data-testid="countryWideConfirmedCases"
         >
           <p className="summary-label">Confirmed</p>
           <img
@@ -81,7 +81,7 @@ class Home extends Component {
         </div>
         <div
           className="covid-summary-item active-container"
-          testid="countryWideActiveCases"
+          data-testid="countryWideActiveCases"
         >
           <p className="summary-label">Active</p>
           <img
@@ -93,7 +93,7 @@ class Home extends Component {
         </div>
         <div
           className="covid-summary-item recovered-container"
-          testid="countryWideRecoveredCases"
+          data-testid="countryWideRecoveredCases"
         >
           <p className="summary-label">Recovered</p>
           <img
@@ -105,7 +105,7 @@ class Home extends Component {
         </div>
         <div
           className="covid-summary-item deceased-container"
-          testid="countryWideDeceasedCases"
+          data-testid="countryWideDeceasedCases"
         >
           <p className="summary-label">Deceased</p>
           <img
@@ -141,14 +141,17 @@ class Home extends Component {
     const {covidData} = this.state
 
     return (
-      <div className="covid-table-container" testid="stateWiseCovidDataTable">
+      <div
+        className="covid-table-container"
+        data-testid="stateWiseCovidDataTable"
+      >
         <div className="covid-table-header-container">
           <p className="table-header states-header">
             States/UT
             <button
               type="button"
               className="sorting-btn"
-              testid="ascendingSort"
+              data-testid="ascendingSort"
               onClick={this.onGetAscData}
             >
               <FcGenericSortingAsc className="sorting-icon" />
@@ -156,7 +159,7 @@ class Home extends Component {
             <button
               type="button"
               className="sorting-btn"
-              testid="descendingSort"
+              data-testid="descendingSort"
               onClick={this.onGetDescData}
             >
               <FcGenericSortingDesc className="sorting-icon" />
@@ -183,7 +186,7 @@ class Home extends Component {
   }
 
   renderLoaderView = () => (
-    <div testid="homeRouteLoader" className="loader-container">
+    <div data-testid="homeRouteLoader" className="loader-container">
       <Loader type="Oval" color="#007BFF" height={50} />
     </div>
   )
@@ -195,7 +198,7 @@ class Home extends Component {
     const {searchInput, isLoading} = this.state
 
     const searchResults = statesList.filter(eachState =>
-      eachState.state_name.toLowerCase().includes(searchInput.toLowerCase()),
+      eachState.stateName.toLowerCase().includes(searchInput.toLowerCase()),
     )
 
     return (
@@ -212,7 +215,7 @@ class Home extends Component {
         </div>
         {searchInput.length > 0 ? (
           <ul
-            testid="searchResultsUnorderedList"
+            data-testid="searchResultsUnorderedList"
             className="search-suggestions-container"
           >
             {searchResults.map(eachSuggestion => (

@@ -58,33 +58,31 @@ const LineChartItem = props => {
       fillColor = '#9673B9'
       dataKey = 'tested'
     }
-  } else {
-    if (id === 1) {
-      data = districtConfirmedData
-      chartClassName = 'confirmed-data'
-      fillColor = '#ff3366'
-      dataKey = 'confirmed'
-    } else if (id === 2) {
-      data = districtActiveData
-      chartClassName = 'active-data'
-      fillColor = '#007BFF'
-      dataKey = 'active'
-    } else if (id === 3) {
-      data = districtRecovereddData
-      chartClassName = 'recovered-data'
-      fillColor = '#27A243'
-      dataKey = 'recovered'
-    } else if (id === 4) {
-      data = districtDeceasedData
-      chartClassName = 'deceased-data'
-      fillColor = '#6C757D'
-      dataKey = 'deceased'
-    } else if (id === 5) {
-      data = districtTetsedData
-      chartClassName = 'tested-data'
-      fillColor = '#9673B9'
-      dataKey = 'tested'
-    }
+  } else if (id === 1) {
+    data = districtConfirmedData
+    chartClassName = 'confirmed-data'
+    fillColor = '#ff3366'
+    dataKey = 'confirmed'
+  } else if (id === 2) {
+    data = districtActiveData
+    chartClassName = 'active-data'
+    fillColor = '#007BFF'
+    dataKey = 'active'
+  } else if (id === 3) {
+    data = districtRecovereddData
+    chartClassName = 'recovered-data'
+    fillColor = '#27A243'
+    dataKey = 'recovered'
+  } else if (id === 4) {
+    data = districtDeceasedData
+    chartClassName = 'deceased-data'
+    fillColor = '#6C757D'
+    dataKey = 'deceased'
+  } else if (id === 5) {
+    data = districtTetsedData
+    chartClassName = 'tested-data'
+    fillColor = '#9673B9'
+    dataKey = 'tested'
   }
 
   const DataFormatter = number => {

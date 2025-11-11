@@ -1,7 +1,6 @@
 import {Component} from 'react'
 import {FaHome} from 'react-icons/fa'
 import Loader from 'react-loader-spinner'
-import Footer from '../Footer'
 import {
   AreaChart,
   Area,
@@ -14,6 +13,7 @@ import {
   Cell,
   Legend,
 } from 'recharts'
+import Footer from '../Footer'
 import './index.css'
 
 const tabsList = [
@@ -111,14 +111,18 @@ class Vaccination extends Component {
   }
 
   renderLoaderView = () => (
-    <div testid="vaccinationRouteLoader" className="loader-container">
+    <div data-testid="vaccinationRouteLoader" className="loader-container">
       <Loader type="Oval" color="#007BFF" height={50} />
     </div>
   )
 
   renderDropDownView = () => {
-    const {districtData, selectedDistrictId, statesData, selectedStateId} =
-      this.state
+    const {
+      districtData,
+      selectedDistrictId,
+      statesData,
+      selectedStateId,
+    } = this.state
 
     return (
       <div className="drop-downs-container">
@@ -243,7 +247,11 @@ class Vaccination extends Component {
       const {id, displayText} = tabDetails
       const activeTabItem = isActive ? 'active-tab-btn' : ''
       return (
-        <button className="tab-item-btn" onClick={() => onChangeTabItem(id)}>
+        <button
+          type="button"
+          className="tab-item-btn"
+          onClick={() => onChangeTabItem(id)}
+        >
           <li className={`tab-item ${activeTabItem}`}>{displayText}</li>
         </button>
       )
@@ -251,12 +259,12 @@ class Vaccination extends Component {
 
     const dataFormatter = number => {
       if (number >= 1000000) {
-        return (number / 1000000).toFixed(1) + 'M'
-      } else if (number >= 1000) {
-        return (number / 1000).toFixed(1) + 'k'
-      } else {
-        return number
+        return `${(number / 1000000).toFixed(1)}M`
       }
+      if (number >= 1000) {
+        return `${(number / 1000).toFixed(1)}k`
+      }
+      return number
     }
 
     return (
@@ -419,40 +427,48 @@ class Vaccination extends Component {
   }
 
   render() {
-    const {statesData, selectedStateId, vaccinationDetails, isLoading} =
-      this.state
+    const {
+      statesData,
+      selectedStateId,
+      vaccinationDetails,
+      isLoading,
+    } = this.state
 
     const activeStateName = statesData.find(
-      eachState => eachState.stateId == selectedStateId,
+      eachState => eachState.stateId.toString() === selectedStateId,
     )
+
+    const header = (
+      <h1 className="state-header">
+        <FaHome />
+        {activeStateName ? `INDIA/${activeStateName.stateName}` : 'INDIA'}
+      </h1>
+    )
+
+    let content
+    if (isLoading) {
+      content = this.renderLoaderView()
+    } else if (!vaccinationDetails) {
+      content = (
+        <p className="no-data-message">
+          Choose a state and district above to see the latest vaccination stats.
+        </p>
+      )
+    } else {
+      content = (
+        <>
+          {this.renderVaccinationSummaryCardsView()}
+          {this.renderVaccinationTrendsView()}
+          {this.renderVaccinationDetailsGraphsView()}
+        </>
+      )
+    }
 
     return (
       <div className="vaccination-container">
-        {activeStateName ? (
-          <h1 className="state-header">
-            <FaHome /> {`INDIA/${activeStateName.stateName}`}
-          </h1>
-        ) : (
-          <h1 className="state-header">
-            <FaHome /> INDIA
-          </h1>
-        )}
-
+        {header}
         {this.renderDropDownView()}
-        {isLoading ? (
-          this.renderLoaderView()
-        ) : vaccinationDetails ? (
-          <>
-            {this.renderVaccinationSummaryCardsView()}
-            {this.renderVaccinationTrendsView()}
-            {this.renderVaccinationDetailsGraphsView()}
-          </>
-        ) : (
-          <p className="no-data-message">
-            Choose a state and district above to see the latest vaccination
-            stats.
-          </p>
-        )}
+        {content}
         <Footer />
       </div>
     )

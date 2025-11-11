@@ -1,13 +1,11 @@
 .app-about-container {
   background-color: #161625;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding-bottom: 40px;
+  padding-top: 0px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 19px;
-  padding-right: 19px;
 }
 
 .loader-container {
@@ -23,7 +21,7 @@
   font-size: 48px;
   line-height: 64px;
   color: #f8fafc;
-  width: 94%;
+  width: 95%;
 }
 .description-header {
   font-family: Roboto;
@@ -31,7 +29,7 @@
   font-size: 24px;
   line-height: 36px;
   color: #e2e8f0;
-  width: 94%;
+  width: 95%;
 }
 @media (max-width: 767px) {
   .header-container {
@@ -48,20 +46,28 @@
 .faq-data-container {
   list-style-type: none;
   margin: 0;
-  padding: 0;
-  padding-left: 19px;
-  padding-right: 19px;
+  width: 100%;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .app-about-container {
     padding-top: 20px;
     padding-bottom: 20px;
+    padding-left: 19px;
+    padding-right: 19px;
   }
   .about-header {
     font-size: 24px;
+    width: 89%;
   }
   .description-header {
     font-size: 16px;
+    width: 89%;
+  }
+}
+@media (min-width: 2560px) {
+  .about-header,
+  .description-header {
+    width: 97%;
   }
 }
