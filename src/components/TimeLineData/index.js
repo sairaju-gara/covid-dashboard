@@ -192,8 +192,8 @@ class TimeLineData extends Component {
     )
 
   renderTimelinesDataLoader = () => (
-    <div data-testid='timelinesDataLoader' className='loader-container'>
-      <Loader type='Oval' color='#007BFF' height={50} />
+    <div data-testid="timelinesDataLoader" className="loader-container">
+      <Loader type="Oval" color="#007BFF" height={50} />
     </div>
   )
 
@@ -206,14 +206,14 @@ class TimeLineData extends Component {
     } = this.state
 
     return (
-      <div className='line-charts-container'>
-        <h1 className='daily-spread-trends'>Daily Spread Trends</h1>
+      <div className="line-charts-container">
+        <h1 className="daily-spread-trends">Daily Spread Trends</h1>
         <select
-          className='district-drop-down-list'
+          className="district-drop-down-list"
           value={activeDistrictName}
           onChange={this.onChangeDistrict}
         >
-          <option value='' disabled>
+          <option value="" disabled>
             Select District
           </option>
           {ditrictData.map(district => (
@@ -223,8 +223,8 @@ class TimeLineData extends Component {
           ))}
         </select>
         <ul
-          data-testid='lineChartsContainer'
-          className='line-charts-list-container'
+          data-testid="lineChartsContainer"
+          className="line-charts-list-container"
         >
           {covidSummaryList.map(eachData => (
             <LineChartItem
@@ -290,7 +290,7 @@ class TimeLineData extends Component {
         height={300}
       >
         <XAxis
-          dataKey='date'
+          dataKey="date"
           tick={{stroke: fillColor, strokeWidth: 1}}
           padding={{left: 10, right: 10}}
           axisLine={false}
@@ -312,7 +312,7 @@ class TimeLineData extends Component {
           dataKey={dataKey}
           fill={fillColor}
           barSize={50}
-          name='Confirmed Cases'
+          name="Confirmed Cases"
           radius={[8, 8, 0, 0]}
           label={{
             position: 'top',
@@ -330,12 +330,12 @@ class TimeLineData extends Component {
     const {isTimelineLoading} = this.state
 
     return (
-      <div className='state-time-line-container'>
+      <div className="state-time-line-container">
         {isTimelineLoading ? (
           this.renderTimelinesDataLoader()
         ) : (
           <>
-            <div className='bar-graph-wrapper'>
+            <div className="bar-graph-wrapper">
               {this.onGetSpecificSummaryGraph()}
             </div>
             {this.renderLineChartsView()}
